@@ -1,3 +1,8 @@
+
+
+
+
+
 # This is chapter 4 " working with lists. "
 magicians = ['alice','david','carolina']
 for magician in magicians: # the colon ":" is there to interpret the next line as the start of a loop !

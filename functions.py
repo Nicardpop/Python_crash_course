@@ -119,32 +119,133 @@ print(sam)
 
 # returning a dictionary :
 
+def build_person(first_name ,last_name,age=None):
+  person = {'first': first_name,'last':last_name}     
+  if age:
+    person['age'] = age
+
+  return person
+
+mus = build_person('danyl','karboub',age=23)
+print(mus)
+
+# Using a function with a while loop :
+
+def get_formate_name_1(first_name,last_name):
+  fullname = f"{first_name} {last_name}"
+  return fullname.title()
+
+while True:
+  print("\nPlease tell me your name:\n")
+  f_n = input("first name :")
+  l_n = input("last name :")
+
+  formatted_name_1 = get_formate_name_1(f_n,l_n)
+
+
+  print(f"\nHello, {formatted_name_1}")
+
+
+# Passing a List :
+def greet_users(names):
+  """Print a simple greeting to each user in the list."""
+  for name in names:
+    msg = f"Hello ,{name.title()}!"
+    print(msg)
+
+
+usernames = ['danyl','nicard','ty']
+greet_users(usernames)
+
+
+# modifying a List in a Function :
+
+unprinted_designs = ['robot','case','phone case']
+
+completed_designs = []
+
+
+while unprinted_designs :
+  current_design = unprinted_designs.pop()
+  print(f"Printing Model:{current_design}")
+  completed_designs.append(current_design)
+
+
+print("this are all the completed designs :\n")
+
+for comp in completed_designs:
+  print(f" - {comp}")
+
+# optimize the program above using funcitnos :
+
+unprinted_models_1 = ['case','phone','cup']
+
+
+def print_models(unprinted_models_1,completed_models_1):
+  while unprinted_models_1 :
+    current_design = unprinted_models_1.pop()
+    print(f"Printing Model :{current_design}")
+    completed_models_1.append(current_design)
+
+def print_completed(completed):
+  print("\nthis are the completed models:\n")
+  for comp in completed :
+    print(f" - {comp}")
+
+
+completed_models_1 = []
+
+print_models(unprinted_models_1,completed_models_1)
+print_completed(completed_models_1)
 
 
 
+# passing on  Arbitrary NUmber of arguments;
 
 
+def make_pizza(*toppings):
+  print("\nMaking a pizza with the following toppings :")
+  for topping in toppings :
+    print(f" - {topping}")
+    
+make_pizza('pepperoni')
+
+make_pizza('mushrooms','green pepper','extra cheese')
 
 
+# using arbitrary  keyword arguments :
+
+def build_profile_1(first, last ,**user_info):
+  user_info['first_n'] = first
+  user_info['last_n'] = last 
+  return user_info
+
+user_profile = build_profile_1('danyl', 'kerboub',location='algeria',gender='male')
+
+print(user_profile)
+
+# try it yourself :
+
+def sandwich_order(*ingredients):
+  print("\nsandwich ingredients :")
+  for ingre in ingredients :
+    print(f" - {ingre}")
+
+sandwich_order('fries','onions','cheese')
 
 
+# # importing an entire module :
+
+# import pizza 
+
+# pizza.make_pizza(12,'cheese')
 
 
+# importing a function from a module :
 
+from pizza import printing_hello as ph 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+ph() #function says hello !
 
 
 
